@@ -5,7 +5,7 @@ This model expands on the capital asset pricing model (CAPM) by adding size risk
 
 ![alt text](https://corporatefinanceinstitute.com/assets/fama-french-three-factor-model02-768x75.png)
 
-Where,
+Where,<br>
 r = Expected rate of return <br>
 rf = Risk-free rate <br>
 ß = Factor’s coefficient (sensitivity) <br>
