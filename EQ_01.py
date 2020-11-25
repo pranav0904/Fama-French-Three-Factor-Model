@@ -1,14 +1,11 @@
 import yfinance as yf
 import numpy as np
 
+import plotly.express as px
 
-Stock_symbols = ['JILL','ELTK','ONVO','UAVS', 'AEY','OBLN','XRF','MLSS','MICT','SOLY','NMRD','INUV','VTGN',
-                'MTSL','DXR','QADA','MYOV','BOSC','APTO','PESI','TITN','EYEG','CAPR','UROV','APDN','TTPH','ECOR','WYND','ZN',
-                'OSN','HDSN','BDR','TBLT','PLM','DMRC','MOV','PVH','TLYS','CPAH','SDRL','RWLK','VEEV','OPRX','RAVE',
-                'PFSW','SPWH','TMDX','DOOO','TC','NBY','WSTL','KEYS','DBI','RVLT','JASN','CNET','RVLV','REKR','SUMR',
-                'MBOT','BDGE','FOLD','SRRA','IDN', 'PIXY','LYL','MHLD','NIO','SLS','NNVC', 'MYT','BYND','CREG',
-                'TCCO','AAMC','OXBR','ANCN','BCRX','ALRN','RTW','LTBR','WWR','VTVT','MACK','NDRA','OTLK','MYT','BYND',
-                'CREG','TCCO','AAMC','OXBR','ANCN','BCRX','ALRN','RTW','LTBR','WWR','HTHT','MACK']
+
+
+Stock_symbols = ['JILL','ELTK','ONVO','UAVS', 'AEY','OBLN']
 
 
 def portfolio_return(List, Start, End):
@@ -20,7 +17,7 @@ def portfolio_return(List, Start, End):
     PORTFOLIO = np.zeros((T, N))
 
     for i in List:
-        print("Stock: ",i)
+        #print("Stock: ",i)
         stock_symbol = yf.Ticker(i)
         data = stock_symbol.history(start=Start, end=End)
         Price = (data['Open'] + data['Close']) / 2
@@ -31,7 +28,17 @@ def portfolio_return(List, Start, End):
         PORTFOLIO[:,j] = Return
         j+=1
 
+        #time_series_plot(Return)
+
     return PORTFOLIO
 
 
-#print(portfolio_return(Stock_symbols, '2019-06-28', '2019-08-31'))
+def time_series_plot(data):
+    
+    fig = px.line(data)
+    fig.show()
+
+print(portfolio_return(Stock_symbols, '2019-07-01', '2019-09-04'))
+#2019-07-01 .........24517
+#2019-09-03 ..........24561
+
