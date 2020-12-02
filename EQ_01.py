@@ -8,8 +8,8 @@ import plotly.express as px
 Stock_symbols = ['JILL','ELTK','ONVO','UAVS', 'AEY','OBLN']
 
 
-def portfolio_return(List, Start, End):
-    """  Portfolio Return for each stock"""    
+def market_return(List, Start, End):
+    """  Market Return for each stock"""    
 
     j = 0
     T = 44
@@ -38,7 +38,7 @@ def time_series_plot(data):
     fig = px.line(data)
     fig.show()
 
-print(portfolio_return(Stock_symbols, '2019-07-01', '2019-09-04'))
+print(market_return(Stock_symbols, '2019-07-01', '2019-09-04'))
 #2019-07-01 .........24517
 #2019-09-03 ..........24561
 
